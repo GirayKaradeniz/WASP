@@ -1,4 +1,4 @@
 class AppAssets {
-  static const WASPLogoIcon = 'assets/icons/';
-  static const WASPLogoText = 'assets/icons/';
+  static const waspLogoIcon = 'assets/icons/';
+  static const waspLogoText = 'assets/icons/';
 }
