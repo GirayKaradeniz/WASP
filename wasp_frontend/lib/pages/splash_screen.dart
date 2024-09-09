@@ -2,7 +2,7 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:wasp_frontend/pages/login_page.dart';
-import '../resources/app_resources.dart';
+import 'package:wasp_frontend/resources/app_resources.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -10,15 +10,15 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
-      splash: Column(
-        children: [
-          Center(
-            child: LottieBuilder.asset(AppAssets.waspSplashToSignIn),
-          )
-        ],
+      splash: Center(
+        child: LottieBuilder.asset(
+          'WaspSignInRevised.json',
+          width: 1080,
+          height: 1920,
+        ),
       ),
       nextScreen: LoginPage(),
-      splashIconSize: 400,
+      splashIconSize: 200,
       backgroundColor: AppColors.pageBackground,
     );
   }
