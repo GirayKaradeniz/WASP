@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wasp_frontend/config/app_config.dart';
+import 'package:wasp_frontend/pages/login_page.dart';
+import 'package:wasp_frontend/pages/signup_page.dart';
 import 'package:wasp_frontend/resources/app_resources.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -11,12 +13,41 @@ class Homepage extends StatefulWidget {
 }
 
 class MyHomePageState extends State<Homepage> {
-  int _selectedIndex = 0; // Track the selected tab index
+  int myCurrentIndex = 0; // Track the selected tab index
+  List pages = [const Homepage(), LoginPage(), RegisterPage()];
 
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: AppColors.pageBackground,
+      bottomNavigationBar: Container(
+        color: AppColors.pageBackground,
+        margin: EdgeInsets.symmetric(horizontal: 20, vertical: 50),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(50),
+          child: Container(
+            child: BottomNavigationBar(
+                backgroundColor: Colors.black,
+                fixedColor: Colors.white,
+                currentIndex: myCurrentIndex,
+                items: [
+                  BottomNavigationBarItem(
+                      icon: SvgPicture.asset(AppAssets.homeIcon),
+                      label: "Home"),
+                  BottomNavigationBarItem(
+                      icon: SvgPicture.asset(AppAssets.searchIcon),
+                      label: "Search"),
+                  BottomNavigationBarItem(
+                      icon: SvgPicture.asset(AppAssets.libraryIcon),
+                      label: "Library"),
+                  BottomNavigationBarItem(
+                      icon: SvgPicture.asset(AppAssets.profileIcon),
+                      label: "Profile")
+                ]),
+          ),
+        ),
+      ),
       body: Container(
         decoration: BoxDecoration(color: AppColors.pageBackground),
         width: screenSize.width,
@@ -144,47 +175,10 @@ class MyHomePageState extends State<Homepage> {
             Container(
               padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
               width: screenSize.width,
-              height: screenSize.height * 0.4,
+              height: screenSize.height * 0.3,
               //color: Colors.black,
             )
           ],
-        ),
-      ),
-      bottomNavigationBar: Container(
-        margin: const EdgeInsets.all(16.0), // Margin around the navbar
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(100.0), // Rounded corners
-          color: AppColors.navBarBackground, // Navbar background color
-        ),
-        child: ClipRRect(
-          borderRadius:
-              BorderRadius.circular(100.0), // Ensures corners are rounded
-          child: NavigationBar(
-            selectedIndex: _selectedIndex,
-            onDestinationSelected: (int index) {
-              setState(() {
-                _selectedIndex = 0; // Update the selected tab index
-              });
-            },
-            destinations: [
-              NavigationDestination(
-                icon: SvgPicture.asset(AppAssets.homeIcon),
-                label: 'Home',
-              ),
-              NavigationDestination(
-                icon: SvgPicture.asset(AppAssets.searchIcon),
-                label: 'Search',
-              ),
-              NavigationDestination(
-                icon: SvgPicture.asset(AppAssets.libraryIcon),
-                label: 'Library',
-              ),
-              NavigationDestination(
-                icon: SvgPicture.asset(AppAssets.profileIcon),
-                label: 'Profile',
-              ),
-            ],
-          ),
         ),
       ),
     );
