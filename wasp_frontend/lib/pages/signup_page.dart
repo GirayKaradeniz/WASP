@@ -30,7 +30,7 @@ class _RegisterPageState extends State<RegisterPage> {
       backgroundColor: AppColors.pageBackground,
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 30.0),
+          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 60.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
