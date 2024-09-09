@@ -1,7 +1,7 @@
 class AppAssets {
   static const waspLogoIconYellow = '../../assets/icons/waspyellow.svg';
   static const waspLogoIconYellowBlackStroke =
-      '../../assets/icons/wasptest.svg';
+      '../../assets/icons/testlogo.svg';
   static const waspLogoIconBlack = '../../assets/icons/wasp_logo_black.svg';
   static const waspLogoTextBlack = '../../assets/icons/';
   static const waspSplashToSignIn =

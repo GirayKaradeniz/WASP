@@ -20,9 +20,12 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset('../../assets/icons/wasptest.svg'),
-
-            SizedBox(height: 30.0),
+            Container(
+              width: 200,
+              height: 200,
+              //color: Colors.black,
+              child: SvgPicture.asset('assets/icons/wasptest.svg'),
+            ),
 
             // Email Input Field
             Container(
