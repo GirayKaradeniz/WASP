@@ -25,6 +25,7 @@ class MyHomePageState extends State<Homepage> {
             Container(
               width: screenSize.width,
               height: screenSize.height * 0.05,
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
               child: Row(
                 children: [
                   RichText(
@@ -59,20 +60,23 @@ class MyHomePageState extends State<Homepage> {
                 width: screenSize.width * 0.8,
                 height: screenSize.height * 0.08,
                 decoration: BoxDecoration(
-                  border: Border.all(width: 2),
-                  color: AppColors.primary,
-                ),
+                    border: Border.all(width: 2),
+                    color: AppColors.primary,
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
                 child: Row(
                   children: [
+                    SizedBox(
+                      width: 15,
+                    ),
                     Icon(
                       Icons.play_arrow,
                       size: 50.0,
                       color: Colors.blue,
                     ),
-                    SizedBox(width: 10), // Add some spacing
+                    SizedBox(width: 25), // Add some spacing
                     Flexible(
                       child: Text(
-                        'Play a very long text that should wrap or truncate',
+                        'Create AI videos for a subject',
                         style: TextStyle(fontSize: 20),
                         maxLines:
                             2, // Set this to 2 or more if you want the text to wrap
@@ -91,20 +95,23 @@ class MyHomePageState extends State<Homepage> {
                 width: screenSize.width * 0.8,
                 height: screenSize.height * 0.08,
                 decoration: BoxDecoration(
-                  border: Border.all(width: 2),
-                  color: AppColors.primary,
-                ),
+                    border: Border.all(width: 2),
+                    color: AppColors.primary,
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
                 child: Row(
                   children: [
+                    SizedBox(
+                      width: 15,
+                    ),
                     Icon(
                       Icons.play_arrow,
                       size: 50.0,
                       color: Colors.blue,
                     ),
-                    SizedBox(width: 10), // Add some spacing
+                    SizedBox(width: 25), // Add some spacing
                     Flexible(
                       child: Text(
-                        'Play a very long text that should wrap or truncate',
+                        'Analyze Document',
                         style: TextStyle(fontSize: 20),
                         maxLines:
                             2, // Set this to 2 or more if you want the text to wrap
@@ -118,7 +125,22 @@ class MyHomePageState extends State<Homepage> {
                 )),
 
             // Last Contents
-            Container()
+            Container(
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+              child: Row(
+                children: [
+                  RichText(
+                    text: TextSpan(style: TextStyle(fontSize: 23), children: [
+                      TextSpan(
+                          text: "Last Contents",
+                          style: TextStyle(
+                              color: AppColors.primaryTextColor,
+                              fontWeight: FontWeight.w700))
+                    ]),
+                  )
+                ],
+              ),
+            )
           ],
         ),
       ),
