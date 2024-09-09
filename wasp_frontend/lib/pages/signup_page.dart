@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../resources/app_resources.dart';
+import 'package:wasp_frontend/resources/app_resources.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
