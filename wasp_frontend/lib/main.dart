@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-
 import 'package:wasp_frontend/pages/login_page.dart';
 import 'package:wasp_frontend/pages/splash_screen.dart';
 import 'package:wasp_frontend/resources/app_resources.dart';
 import 'package:wasp_frontend/config/app_config.dart';
 import 'pages/homePage.dart';
-
 
 void main() {
   runApp(const MyApp());
@@ -21,10 +19,10 @@ class MyApp extends StatelessWidget {
       title: 'WASP',
       theme: ThemeData(
         primaryColor: AppColors.primary,
+        scaffoldBackgroundColor: AppColors.blackButtonBackground,
         useMaterial3: true,
       ),
-      home: LoginPage(),
-
+      home: Homepage(),
     );
   }
 }

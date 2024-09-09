@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wasp_frontend/config/app_config.dart';
 import 'package:wasp_frontend/resources/app_resources.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -10,6 +11,8 @@ class Homepage extends StatefulWidget {
 }
 
 class MyHomePageState extends State<Homepage> {
+  int _selectedIndex = 0; // Track the selected tab index
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -54,7 +57,7 @@ class MyHomePageState extends State<Homepage> {
               ),
             ),
 
-            //Create AI videos for a subject Container
+            // Create AI videos for a subject Container
             Container(
                 margin: EdgeInsets.fromLTRB(0, screenSize.height * 0.04, 0, 0),
                 width: screenSize.width * 0.8,
@@ -84,7 +87,7 @@ class MyHomePageState extends State<Homepage> {
                   ],
                 )),
 
-            //Analyze Document Container
+            // Analyze Document Container
             Container(
                 margin: EdgeInsets.fromLTRB(0, screenSize.height * 0.04, 0, 0),
                 width: screenSize.width * 0.8,
@@ -147,7 +150,43 @@ class MyHomePageState extends State<Homepage> {
           ],
         ),
       ),
+      bottomNavigationBar: Container(
+        margin: const EdgeInsets.all(16.0), // Margin around the navbar
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(100.0), // Rounded corners
+          color: AppColors.navBarBackground, // Navbar background color
+        ),
+        child: ClipRRect(
+          borderRadius:
+              BorderRadius.circular(100.0), // Ensures corners are rounded
+          child: NavigationBar(
+            selectedIndex: _selectedIndex,
+            onDestinationSelected: (int index) {
+              setState(() {
+                _selectedIndex = 0; // Update the selected tab index
+              });
+            },
+            destinations: [
+              NavigationDestination(
+                icon: SvgPicture.asset(AppAssets.homeIcon),
+                label: 'Home',
+              ),
+              NavigationDestination(
+                icon: SvgPicture.asset(AppAssets.searchIcon),
+                label: 'Search',
+              ),
+              NavigationDestination(
+                icon: SvgPicture.asset(AppAssets.libraryIcon),
+                label: 'Library',
+              ),
+              NavigationDestination(
+                icon: SvgPicture.asset(AppAssets.profileIcon),
+                label: 'Profile',
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
-// This widget is the root of your application.
