@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const Color primary = Color.fromARGB(255, 255, 200, 0);
-  static const Color pageBackground = Color.fromARGB(255, 244, 244, 244);
-  static const Color primaryTextColor = Color.fromARGB(255, 43, 43, 43);
-  static const Color secondaryTextColor = Color.fromARGB(255, 124, 124, 124);
-  static const Color thirdTextColor = Color.fromARGB(255, 183, 183, 183);
-  static const Color blackButtonBackground = Color.fromARGB(255, 43, 43, 43);
-  static const Color blackButtonTextColor = Color.fromARGB(255, 255, 200, 0);
-  static const Color navBarBackground = Color.fromARGB(255, 43, 43, 43);
-  static const Color navBarForeground = Color.fromARGB(255, 255, 200, 0);
-  static const Color falseRed = Color.fromARGB(255, 221, 0, 0);
-  static const Color trueGreen = Color.fromARGB(255, 0, 174, 58);
+
+  static const Color primary = Color(0xFFFFC800);
+  static const Color pageBackground = Color(0xFFF4F4F4);
+  static const Color primaryTextColor = Color(0xFF2B2B2B);
+  static const Color secondaryTextColor = Color(0xFF7C7C7C);
+  static const Color thirdTextColor = Color(0xFFB7B7B7);
+  static const Color blackButtonBackground = Color(0xFF2B2B2B);
+  static const Color blackButtonTextColor = Color(0xFFFFC800);
+  static const Color navBarBackground = Color(0xFF2B2B2B);
+  static const Color navBarForeground = Color(0xFFFFC800);
+  static const Color falseRed = Color(0xFFDD0000);
+  static const Color trueGreen = Color(0xFF00AE3B);
+
 }
