@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:wasp_frontend/config/app_config.dart';
 import 'package:wasp_frontend/resources/app_resources.dart';
 
@@ -59,7 +60,6 @@ class MyHomePageState extends State<Homepage> {
                 width: screenSize.width * 0.8,
                 height: screenSize.height * 0.08,
                 decoration: BoxDecoration(
-                    border: Border.all(width: 2),
                     color: AppColors.primary,
                     borderRadius: BorderRadius.all(Radius.circular(20))),
                 child: Row(
@@ -67,11 +67,7 @@ class MyHomePageState extends State<Homepage> {
                     SizedBox(
                       width: 15,
                     ),
-                    Icon(
-                      Icons.play_arrow,
-                      size: 50.0,
-                      color: Colors.blue,
-                    ),
+                    SvgPicture.asset(AppAssets.videoIcon),
                     SizedBox(width: 25), // Add some spacing
                     Flexible(
                       child: Text(
@@ -94,7 +90,6 @@ class MyHomePageState extends State<Homepage> {
                 width: screenSize.width * 0.8,
                 height: screenSize.height * 0.08,
                 decoration: BoxDecoration(
-                    border: Border.all(width: 2),
                     color: AppColors.primary,
                     borderRadius: BorderRadius.all(Radius.circular(20))),
                 child: Row(
@@ -102,11 +97,7 @@ class MyHomePageState extends State<Homepage> {
                     SizedBox(
                       width: 15,
                     ),
-                    Icon(
-                      Icons.play_arrow,
-                      size: 50.0,
-                      color: Colors.blue,
-                    ),
+                    SvgPicture.asset(AppAssets.documentIcon),
                     SizedBox(width: 25), // Add some spacing
                     Flexible(
                       child: Text(
@@ -125,7 +116,7 @@ class MyHomePageState extends State<Homepage> {
 
             // Last Contents
             Container(
-              padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
               child: Row(
                 children: [
                   RichText(
@@ -136,9 +127,22 @@ class MyHomePageState extends State<Homepage> {
                               color: AppColors.primaryTextColor,
                               fontWeight: FontWeight.w700))
                     ]),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Icon(
+                    Icons.arrow_circle_right,
+                    size: 30,
                   )
                 ],
               ),
+            ),
+            Container(
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+              width: screenSize.width,
+              height: screenSize.height * 0.4,
+              //color: Colors.black,
             )
           ],
         ),
