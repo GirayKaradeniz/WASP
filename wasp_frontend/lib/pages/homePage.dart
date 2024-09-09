@@ -1,7 +1,6 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:wasp_frontend/config/app_config.dart';
-import 'package:wasp_frontend/resources/app_colors.dart';
+import 'package:wasp_frontend/resources/app_resources.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});

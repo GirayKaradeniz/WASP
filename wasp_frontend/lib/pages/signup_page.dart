@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:wasp_frontend/pages/login_page.dart';
-import '../resources/app_resources.dart';
+import 'package:wasp_frontend/resources/app_resources.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -200,23 +199,15 @@ class _RegisterPageState extends State<RegisterPage> {
 
               SizedBox(height: 20.0),
               Center(
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => LoginPage()),
-                    );
-                  },
-                  child: Text(
-                    "I already have an account",
-                    style: TextStyle(
+                child: Text(
+                  'I already have an account',
+                  style: TextStyle(
+                      fontSize: 15,
                       fontFamily: 'Lexend',
-                      fontSize: 16,
-                      color: AppColors.primaryTextColor,
-                    ),
-                  ),
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.primaryTextColor),
                 ),
-              )
+              ),
             ],
           ),
         ),
