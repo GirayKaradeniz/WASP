@@ -24,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
               width: 200,
               height: 200,
               //color: Colors.black,
-              child: SvgPicture.asset('assets/icons/wasptest.svg'),
+              child: SvgPicture.asset(AppAssets.waspLogoIconYellow),
             ),
 
             // Email Input Field
