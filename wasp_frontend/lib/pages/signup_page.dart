@@ -25,193 +25,190 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        resizeToAvoidBottomInset: true,
-        backgroundColor: AppColors.pageBackground,
-        body: SingleChildScrollView(
-          child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 24.0, vertical: 30.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Sign Up',
-                  style: TextStyle(
-                      fontSize: 30,
+    return Scaffold(
+      resizeToAvoidBottomInset: true,
+      backgroundColor: AppColors.pageBackground,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 30.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Sign Up',
+                style: TextStyle(
+                    fontSize: 30,
+                    fontFamily: 'Lexend',
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.primaryTextColor),
+              ),
+              SizedBox(height: 20.0),
+
+              // Name Input Field
+              _buildInputField(
+                icon: Icons.person_outline,
+                hintText: "Name",
+              ),
+              SizedBox(height: 20.0),
+
+              // Surname Input Field
+              _buildInputField(
+                icon: Icons.person_outline,
+                hintText: "Surname",
+              ),
+              SizedBox(height: 20.0),
+
+              // Email Input Field
+              _buildInputField(
+                icon: Icons.email_outlined,
+                hintText: "Email",
+              ),
+              SizedBox(height: 20.0),
+
+              // Date of Birth Input Field (Date Picker)
+              _buildDatePickerField(
+                hintText: "Date of Birth",
+                selectedDate: _selectedDateOfBirth,
+                onDateSelected: (date) {
+                  setState(() {
+                    _selectedDateOfBirth = date;
+                  });
+                },
+              ),
+              SizedBox(height: 20.0),
+
+              // occupation Input Field (Dropdown)
+              _buildDropdownField(
+                hintText: "Occupation",
+                selectedValue: _selectedoccupation,
+                options: _occupations,
+                onChanged: (value) {
+                  setState(() {
+                    _selectedoccupation = value;
+                  });
+                },
+              ),
+              SizedBox(height: 20.0),
+
+              // Password Input Field
+              _buildPasswordInputField(
+                hintText: "Password",
+                isPasswordVisible: _isPasswordVisible,
+                toggleVisibility: () {
+                  setState(() {
+                    _isPasswordVisible = !_isPasswordVisible;
+                  });
+                },
+              ),
+              SizedBox(height: 20.0),
+
+              // Password Confirm Input Field
+              _buildPasswordInputField(
+                hintText: "Confirm Password",
+                isPasswordVisible: _isPasswordConfirmVisible,
+                toggleVisibility: () {
+                  setState(() {
+                    _isPasswordConfirmVisible = !_isPasswordConfirmVisible;
+                  });
+                },
+              ),
+              SizedBox(height: 20.0),
+
+              // Terms and Conditions
+              Row(
+                children: [
+                  Checkbox(
+                    activeColor: AppColors.primary,
+                    checkColor: AppColors.blackButtonBackground,
+                    side: BorderSide(
+                        width: 2, color: AppColors.secondaryTextColor),
+                    shape: CircleBorder(),
+                    value: _agreeToTerms,
+                    onChanged: (value) {
+                      setState(() {
+                        _agreeToTerms = value!;
+                      });
+                    },
+                  ),
+                  Expanded(
+                    child: Text(
+                      "I have read and agree to WASPs Terms of Service and Privacy Policy.",
+                      style: TextStyle(
+                        color: AppColors.secondaryTextColor,
+                        fontFamily: 'Lexend',
+                        fontSize: 14.0,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 10.0),
+              Row(
+                children: [
+                  Checkbox(
+                    activeColor: AppColors.primary,
+                    checkColor: AppColors.blackButtonBackground,
+                    side: BorderSide(
+                        width: 2, color: AppColors.secondaryTextColor),
+                    shape: CircleBorder(),
+                    value: _receiveOffers,
+                    onChanged: (value) {
+                      setState(() {
+                        _receiveOffers = value!;
+                      });
+                    },
+                  ),
+                  Expanded(
+                    child: Text(
+                      "Yes, I would like to receive commercial electronic information and offers from WASP (including emails and push notifications, which may be subject to fees charged by my wireless carrier), including on my wireless device. You may later unsubscribe. Your consent is sought by WASP Software Technologies, Inc.",
+                      style: TextStyle(
+                        color: AppColors.secondaryTextColor,
+                        fontFamily: 'Lexend',
+                        fontSize: 14.0,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20.0),
+
+              // Register Button
+              Container(
+                width: double.infinity,
+                height: AppDimens.signInButtonHeight,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.blackButtonBackground,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50.0),
+                    ),
+                  ),
+                  onPressed: () {
+                    // register butonu eklenecek
+                  },
+                  child: Text(
+                    "Register",
+                    style: TextStyle(
+                      color: AppColors.blackButtonTextColor,
                       fontFamily: 'Lexend',
-                      fontWeight: FontWeight.w700,
+                      fontSize: 16.0,
+                    ),
+                  ),
+                ),
+              ),
+
+              SizedBox(height: 20.0),
+              Center(
+                child: Text(
+                  'I already have an account',
+                  style: TextStyle(
+                      fontSize: 15,
+                      fontFamily: 'Lexend',
+                      fontWeight: FontWeight.w500,
                       color: AppColors.primaryTextColor),
                 ),
-                SizedBox(height: 20.0),
-
-                // Name Input Field
-                _buildInputField(
-                  icon: Icons.person_outline,
-                  hintText: "Name",
-                ),
-                SizedBox(height: 20.0),
-
-                // Surname Input Field
-                _buildInputField(
-                  icon: Icons.person_outline,
-                  hintText: "Surname",
-                ),
-                SizedBox(height: 20.0),
-
-                // Email Input Field
-                _buildInputField(
-                  icon: Icons.email_outlined,
-                  hintText: "Email",
-                ),
-                SizedBox(height: 20.0),
-
-                // Date of Birth Input Field (Date Picker)
-                _buildDatePickerField(
-                  hintText: "Date of Birth",
-                  selectedDate: _selectedDateOfBirth,
-                  onDateSelected: (date) {
-                    setState(() {
-                      _selectedDateOfBirth = date;
-                    });
-                  },
-                ),
-                SizedBox(height: 20.0),
-
-                // occupation Input Field (Dropdown)
-                _buildDropdownField(
-                  hintText: "Occupation",
-                  selectedValue: _selectedoccupation,
-                  options: _occupations,
-                  onChanged: (value) {
-                    setState(() {
-                      _selectedoccupation = value;
-                    });
-                  },
-                ),
-                SizedBox(height: 20.0),
-
-                // Password Input Field
-                _buildPasswordInputField(
-                  hintText: "Password",
-                  isPasswordVisible: _isPasswordVisible,
-                  toggleVisibility: () {
-                    setState(() {
-                      _isPasswordVisible = !_isPasswordVisible;
-                    });
-                  },
-                ),
-                SizedBox(height: 20.0),
-
-                // Password Confirm Input Field
-                _buildPasswordInputField(
-                  hintText: "Confirm Password",
-                  isPasswordVisible: _isPasswordConfirmVisible,
-                  toggleVisibility: () {
-                    setState(() {
-                      _isPasswordConfirmVisible = !_isPasswordConfirmVisible;
-                    });
-                  },
-                ),
-                SizedBox(height: 20.0),
-
-                // Terms and Conditions
-                Row(
-                  children: [
-                    Checkbox(
-                      activeColor: AppColors.primary,
-                      checkColor: AppColors.blackButtonBackground,
-                      side: BorderSide(
-                          width: 2, color: AppColors.secondaryTextColor),
-                      shape: CircleBorder(),
-                      value: _agreeToTerms,
-                      onChanged: (value) {
-                        setState(() {
-                          _agreeToTerms = value!;
-                        });
-                      },
-                    ),
-                    Expanded(
-                      child: Text(
-                        "I have read and agree to WASPs Terms of Service and Privacy Policy.",
-                        style: TextStyle(
-                          color: AppColors.secondaryTextColor,
-                          fontFamily: 'Lexend',
-                          fontSize: 14.0,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    Checkbox(
-                      activeColor: AppColors.primary,
-                      checkColor: AppColors.blackButtonBackground,
-                      side: BorderSide(
-                          width: 2, color: AppColors.secondaryTextColor),
-                      shape: CircleBorder(),
-                      value: _receiveOffers,
-                      onChanged: (value) {
-                        setState(() {
-                          _receiveOffers = value!;
-                        });
-                      },
-                    ),
-                    Expanded(
-                      child: Text(
-                        "Yes, I would like to receive commercial electronic information and offers from WASP (including emails and push notifications, which may be subject to fees charged by my wireless carrier), including on my wireless device. You may later unsubscribe. Your consent is sought by WASP Software Technologies, Inc.",
-                        style: TextStyle(
-                          color: AppColors.secondaryTextColor,
-                          fontFamily: 'Lexend',
-                          fontSize: 14.0,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 20.0),
-
-                // Register Button
-                Container(
-                  width: double.infinity,
-                  height: AppDimens.signInButtonHeight,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.blackButtonBackground,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50.0),
-                      ),
-                    ),
-                    onPressed: () {
-                      // register butonu eklenecek
-                    },
-                    child: Text(
-                      "Register",
-                      style: TextStyle(
-                        color: AppColors.blackButtonTextColor,
-                        fontFamily: 'Lexend',
-                        fontSize: 16.0,
-                      ),
-                    ),
-                  ),
-                ),
-
-                SizedBox(height: 20.0),
-                Center(
-                  child: Text(
-                    'I already have an account',
-                    style: TextStyle(
-                        fontSize: 15,
-                        fontFamily: 'Lexend',
-                        fontWeight: FontWeight.w500,
-                        color: AppColors.primaryTextColor),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
