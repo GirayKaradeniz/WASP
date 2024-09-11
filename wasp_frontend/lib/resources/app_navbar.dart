@@ -5,9 +5,11 @@ import 'package:wasp_frontend/pages/login_page.dart';
 import 'package:wasp_frontend/pages/signup_page.dart';
 import 'package:wasp_frontend/resources/app_assets.dart';
 import 'package:wasp_frontend/resources/app_colors.dart';
+import 'package:wasp_frontend/pages/search.dart';
 
 class BottomNavigationPage extends StatefulWidget {
-  const BottomNavigationPage({super.key});
+  final Function(int index) onTap;
+  const BottomNavigationPage({super.key, required this.onTap});
 
   @override
   State<BottomNavigationPage> createState() => _BottomNavigationPageState();
@@ -16,7 +18,8 @@ class BottomNavigationPage extends StatefulWidget {
 class _BottomNavigationPageState extends State<BottomNavigationPage> {
   int myCurrentIndex = 0;
 
-  List pages = [Homepage(), LoginPage(), RegisterPage()];
+  List pages = [Homepage(), SearchPage(), RegisterPage(), LoginPage()];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,46 +38,41 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
               onTap: (index) {
                 setState(() {
                   myCurrentIndex = index;
+                  widget.onTap(index);
                 });
               },
               items: [
                 BottomNavigationBarItem(
                     backgroundColor: Colors.black,
                     icon: SizedBox(
-                      // Wrapping icon in SizedBox to reduce item size
-                      width: 30, // Reduced width for the item
-                      child: SvgPicture.asset(AppAssets.homeIcon,
-                          height: 35), // Smaller icon size
+                      width: 30,
+                      child: SvgPicture.asset(AppAssets.homeIcon, height: 35),
                     ),
                     label: "Home"),
                 BottomNavigationBarItem(
                     icon: SizedBox(
-                      // Wrapping icon in SizedBox to reduce item size
-                      width: 30, // Reduced width for the item
-                      child: SvgPicture.asset(AppAssets.searchIcon,
-                          height: 35), // Smaller icon size
+                      width: 30,
+                      child: SvgPicture.asset(AppAssets.searchIcon, height: 35),
                     ),
                     label: "Search"),
                 BottomNavigationBarItem(
                     icon: SizedBox(
-                      // Wrapping icon in SizedBox to reduce item size
-                      width: 30, // Reduced width for the item
-                      child: SvgPicture.asset(AppAssets.libraryIcon,
-                          height: 35), // Smaller icon size
+                      width: 30,
+                      child:
+                          SvgPicture.asset(AppAssets.libraryIcon, height: 35),
                     ),
                     label: "Library"),
                 BottomNavigationBarItem(
                     icon: SizedBox(
-                      // Wrapping icon in SizedBox to reduce item size
-                      width: 30, // Reduced width for the item
-                      child: SvgPicture.asset(AppAssets.profileIcon,
-                          height: 35), // Smaller icon size
+                      width: 30,
+                      child:
+                          SvgPicture.asset(AppAssets.profileIcon, height: 35),
                     ),
                     label: "Profile"),
               ]),
         ),
       ),
-      body: pages[myCurrentIndex],
+      body: pages[myCurrentIndex], // BottomNavigationPage ile bağlı sayfalar
     );
   }
 }

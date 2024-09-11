@@ -4,6 +4,8 @@ import 'package:wasp_frontend/resources/app_resources.dart';
 import 'package:wasp_frontend/pages/signup_page.dart';
 import 'package:wasp_frontend/pages/homepage.dart';
 
+import '../resources/app_navbar.dart';
+
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -22,7 +24,8 @@ class _LoginPageState extends State<LoginPage> {
       // Giriş başarılı, anasayfaya yönlendirilir
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => Homepage()),
+        MaterialPageRoute(
+            builder: (context) => BottomNavigationPage(onTap: (index) {})),
       );
     } else {
       // Hata mesajı gösterilir

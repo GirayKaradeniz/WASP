@@ -5,6 +5,7 @@ import 'package:wasp_frontend/pages/login_page.dart';
 import 'package:wasp_frontend/pages/signup_page.dart';
 import 'package:wasp_frontend/resources/app_resources.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:wasp_frontend/resources/app_navbar.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -13,9 +14,6 @@ class Homepage extends StatefulWidget {
 }
 
 class MyHomePageState extends State<Homepage> {
-  int myCurrentIndex = 0; // Track the selected tab index
-  List pages = [const Homepage(), LoginPage(), RegisterPage()];
-
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -153,6 +151,7 @@ class MyHomePageState extends State<Homepage> {
           ],
         ),
       ),
+      //bottomNavigationBar: BottomNavigationPage(),
     );
   }
 }
