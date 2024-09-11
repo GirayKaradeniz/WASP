@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wasp_frontend/pages/login_page.dart';
 import 'package:wasp_frontend/pages/splash_screen.dart';
+import 'package:wasp_frontend/resources/app_navbar.dart';
 import 'package:wasp_frontend/resources/app_resources.dart';
 import 'package:wasp_frontend/config/app_config.dart';
 import 'pages/homePage.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.blackButtonBackground,
         useMaterial3: true,
       ),
-      home: Homepage(),
+      home: BottomNavigationPage(),
     );
   }
 }
@@ -73,10 +74,11 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: Container(
         child: BottomNavigationBar(currentIndex: myCurrentIndex, items: [
           BottomNavigationBarItem(
-              icon: SvgPicture.asset(AppAssets.videoIcon), label: "Home")
+            icon: SvgPicture.asset(AppAssets.videoIcon),
+          )
         ]),
       ),
-      body: pages[myCurrentIndex],
+      body: BottomNavigationPage(),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',

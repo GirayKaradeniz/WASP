@@ -20,34 +20,6 @@ class MyHomePageState extends State<Homepage> {
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: AppColors.pageBackground,
-      bottomNavigationBar: Container(
-        color: AppColors.pageBackground,
-        margin: EdgeInsets.symmetric(horizontal: 20, vertical: 50),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(50),
-          child: Container(
-            child: BottomNavigationBar(
-                backgroundColor: Colors.black,
-                fixedColor: Colors.white,
-                currentIndex: myCurrentIndex,
-                items: [
-                  BottomNavigationBarItem(
-                      icon: SvgPicture.asset(AppAssets.homeIcon),
-                      label: "Home"),
-                  BottomNavigationBarItem(
-                      icon: SvgPicture.asset(AppAssets.searchIcon),
-                      label: "Search"),
-                  BottomNavigationBarItem(
-                      icon: SvgPicture.asset(AppAssets.libraryIcon),
-                      label: "Library"),
-                  BottomNavigationBarItem(
-                      icon: SvgPicture.asset(AppAssets.profileIcon),
-                      label: "Profile")
-                ]),
-          ),
-        ),
-      ),
       body: Container(
         decoration: BoxDecoration(color: AppColors.pageBackground),
         width: screenSize.width,
