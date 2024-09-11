@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wasp_frontend/resources/app_resources.dart';
 import 'package:wasp_frontend/pages/signup_page.dart';
+import 'package:wasp_frontend/pages/homepage.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -10,6 +11,26 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool _isPasswordVisible = false;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  void _signIn() {
+    String email = _emailController.text;
+    String password = _passwordController.text;
+
+    if (email == 'Admin1234' && password == '1234admin') {
+      // Giriş başarılı, anasayfaya yönlendirilir
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => Homepage()),
+      );
+    } else {
+      // Hata mesajı gösterilir
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Geçersiz kullanıcı adı veya şifre')),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                       Border.all(color: AppColors.primaryTextColor, width: 2),
                 ),
                 child: TextField(
+                  controller: _emailController,
                   decoration: InputDecoration(
                     prefixIcon: Icon(
                       Icons.email_outlined,
@@ -74,6 +96,7 @@ class _LoginPageState extends State<LoginPage> {
                       Border.all(color: AppColors.primaryTextColor, width: 2),
                 ),
                 child: TextField(
+                  controller: _passwordController,
                   obscureText:
                       !_isPasswordVisible, // password visibility toggle
                   decoration: InputDecoration(
@@ -120,9 +143,7 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(50.0),
                     ),
                   ),
-                  onPressed: () {
-                    // giriş yap butonu eklenecek
-                  },
+                  onPressed: _signIn,
                   child: Text(
                     "Sign In",
                     style: TextStyle(

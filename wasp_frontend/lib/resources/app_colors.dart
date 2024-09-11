@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
+
   static const Color primary = Color(0xFFFFC800);
   static const Color pageBackground = Color(0xFFF4F4F4);
   static const Color primaryTextColor = Color(0xFF2B2B2B);
@@ -12,4 +13,5 @@ class AppColors {
   static const Color navBarForeground = Color(0xFFFFC800);
   static const Color falseRed = Color(0xFFDD0000);
   static const Color trueGreen = Color(0xFF00AE3B);
+
 }
