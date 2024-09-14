@@ -20,17 +20,24 @@ class _LoginPageState extends State<LoginPage> {
     String email = _emailController.text;
     String password = _passwordController.text;
 
-    if (email == 'Admin1234' && password == '1234admin') {
-      // Giriş başarılı, anasayfaya yönlendirilir
+    if (email == 'test' && password == 'test') {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
             builder: (context) => BottomNavigationPage(onTap: (index) {})),
       );
     } else {
-      // Hata mesajı gösterilir
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Geçersiz kullanıcı adı veya şifre')),
+        SnackBar(
+            behavior: SnackBarBehavior.floating,
+            backgroundColor: AppColors.falseRed,
+            content: Text(
+              'Invalid mail or password',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'Lexend',
+                  fontWeight: FontWeight.w500),
+            )),
       );
     }
   }

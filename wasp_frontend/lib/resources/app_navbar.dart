@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wasp_frontend/pages/homePage.dart';
-import 'package:wasp_frontend/pages/login_page.dart';
-import 'package:wasp_frontend/pages/signup_page.dart';
+import 'package:wasp_frontend/pages/analyze_document.dart';
+import 'package:wasp_frontend/pages/create_video.dart';
 import 'package:wasp_frontend/resources/app_assets.dart';
 import 'package:wasp_frontend/resources/app_colors.dart';
 import 'package:wasp_frontend/pages/search.dart';
@@ -18,7 +18,7 @@ class BottomNavigationPage extends StatefulWidget {
 class _BottomNavigationPageState extends State<BottomNavigationPage> {
   int myCurrentIndex = 0;
 
-  List pages = [Homepage(), SearchPage(), RegisterPage(), LoginPage()];
+  List pages = [Homepage(), SearchPage(), CreateVideo(), AnalyzeDocument()];
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(50),
           child: BottomNavigationBar(
-              backgroundColor: Colors.black,
+              backgroundColor: AppColors.navBarBackground,
               currentIndex: myCurrentIndex,
               showUnselectedLabels: false,
               onTap: (index) {
@@ -43,7 +43,7 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
               },
               items: [
                 BottomNavigationBarItem(
-                    backgroundColor: Colors.black,
+                    backgroundColor: AppColors.navBarBackground,
                     icon: SizedBox(
                       width: 30,
                       child: SvgPicture.asset(AppAssets.homeIcon, height: 35),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wasp_frontend/pages/login_page.dart';
+import 'package:wasp_frontend/pages/create_video.dart';
 import 'package:wasp_frontend/pages/splash_screen.dart';
 import 'package:wasp_frontend/resources/app_navbar.dart';
 import 'package:wasp_frontend/resources/app_resources.dart';
