@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wasp_frontend/resources/app_resources.dart';
 
 void main() {
@@ -26,7 +27,8 @@ class SearchPage extends StatelessWidget {
           flexibleSpace: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment:
+                  MainAxisAlignment.end, // Elemanları alt hizaya çeker
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
@@ -38,7 +40,8 @@ class SearchPage extends StatelessWidget {
                     color: AppColors.primaryTextColor,
                   ),
                 ),
-                SizedBox(height: 4),
+                SizedBox(
+                    height: 6), // Başlık ile arama çubuğu arasındaki boşluk
                 Container(
                   height: AppDimens.inputTextFieldHeight,
                   decoration: BoxDecoration(
