@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: AppColors.primary,
         scaffoldBackgroundColor: AppColors.blackButtonBackground,
+        hoverColor: AppColors.pageBackground,
         useMaterial3: true,
       ),
       home: LoginPage(),
@@ -62,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      
+
         // This trailing comma makes auto-formatting nicer for build methods.
         );
   }

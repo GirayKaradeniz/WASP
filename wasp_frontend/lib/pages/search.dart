@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wasp_frontend/resources/app_resources.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,41 +18,52 @@ class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF4F4F4),
+      backgroundColor: AppColors.pageBackground,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(110),
         child: AppBar(
-          backgroundColor: Color(0xFFF4F4F4),
+          backgroundColor: AppColors.pageBackground,
           flexibleSpace: Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: 24,
-                vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
             child: Column(
-              mainAxisAlignment:
-                  MainAxisAlignment.end, // Elemanları alt hizaya çeker
+              mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'Search',
                   style: TextStyle(
+                    fontFamily: 'Lexend',
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: AppColors.primaryTextColor,
                   ),
                 ),
-                SizedBox(
-                    height: 4), // Başlık ile arama çubuğu arasındaki boşluk
+                SizedBox(height: 4),
                 Container(
+                  height: AppDimens.inputTextFieldHeight,
                   decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(24),
+                    color: AppColors.pageBackground,
+                    borderRadius: BorderRadius.circular(50.0),
+                    border:
+                        Border.all(color: AppColors.primaryTextColor, width: 2),
                   ),
                   child: TextField(
                     decoration: InputDecoration(
-                      hintText: 'Search for Topics, Users...',
+                      prefixIcon: Icon(
+                        Icons.search_outlined,
+                        color: AppColors.primaryTextColor,
+                      ),
+                      hintText: "Search for topics, users...",
+                      hintStyle: TextStyle(
+                        color: AppColors.primaryTextColor,
+                        fontFamily: 'Lexend',
+                      ),
                       border: InputBorder.none,
-                      prefixIcon: Icon(Icons.search, color: Colors.grey),
-                      contentPadding: EdgeInsets.all(10),
+                      contentPadding: EdgeInsets.all(10.0),
+                    ),
+                    style: TextStyle(
+                      color: AppColors.primaryTextColor,
+                      fontFamily: 'Lexend',
                     ),
                   ),
                 ),
