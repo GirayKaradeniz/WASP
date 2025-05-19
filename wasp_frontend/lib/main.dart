@@ -3,10 +3,11 @@ import 'package:flutter_svg/svg.dart';
 import 'package:wasp_frontend/pages/login_page.dart';
 import 'package:wasp_frontend/pages/create_video.dart';
 import 'package:wasp_frontend/pages/splash_screen.dart';
-import 'package:wasp_frontend/resources/app_navbar.dart';
 import 'package:wasp_frontend/resources/app_resources.dart';
 import 'package:wasp_frontend/config/app_config.dart';
 import 'pages/homePage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:wasp_frontend/pages/onboarding_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         hoverColor: AppColors.pageBackground,
         useMaterial3: true,
       ),
-      home: LoginPage(),
+      home: const OnboardingPage(),
     );
   }
 }
@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return Scaffold(
+    return const Scaffold(
 
         // This trailing comma makes auto-formatting nicer for build methods.
         );

@@ -4,9 +4,9 @@ import 'package:wasp_frontend/resources/app_resources.dart';
 import 'package:wasp_frontend/pages/signup_page.dart';
 import 'package:wasp_frontend/pages/homepage.dart';
 
-import '../resources/app_navbar.dart';
-
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -23,12 +23,11 @@ class _LoginPageState extends State<LoginPage> {
     if (email == 'test' && password == 'test') {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(
-            builder: (context) => BottomNavigationPage(onTap: (index) {})),
+        MaterialPageRoute(builder: (context) => const Homepage()),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
             behavior: SnackBarBehavior.floating,
             backgroundColor: AppColors.falseRed,
             content: Text(
@@ -49,69 +48,87 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: AppColors.pageBackground,
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 32.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 70.0),
-
-              Container(
-                width: 150,
-                height: 150,
-                child:
-                    SvgPicture.asset(AppAssets.waspLogoIconYellowBlackStroke),
+              const SizedBox(height: 70.0),
+              // App Name
+              const Center(
+                child: Text(
+                  'WASP',
+                  style: TextStyle(
+                    fontFamily: 'Lexend',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 28.0,
+                    color: AppColors.primaryTextColor,
+                  ),
+                ),
               ),
-
-              SizedBox(height: 70.0),
-
-              // Email Input Field
+              const SizedBox(height: 36.0),
+              // Welcome Message
+              Padding(
+                padding: const EdgeInsets.only(left: 2.0),
+                child: Text(
+                  '‘Ne zaman gelir?’ diyorduk... ve geldin.',
+                  style: const TextStyle(
+                    fontFamily: 'Lexend',
+                    fontWeight: FontWeight.w700,
+                    fontSize: 20.0,
+                    color: AppColors.primaryTextColor,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 48.0),
+              // Email/Phone/Username Input
               Container(
                 height: AppDimens.inputTextFieldHeight,
                 decoration: BoxDecoration(
                   color: AppColors.pageBackground,
-                  borderRadius: BorderRadius.circular(50.0),
+                  borderRadius: BorderRadius.circular(12.0),
                   border:
-                      Border.all(color: AppColors.primaryTextColor, width: 2),
+                      Border.all(color: AppColors.primaryTextColor, width: 1.2),
                 ),
                 child: TextField(
                   controller: _emailController,
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(
-                      Icons.email_outlined,
-                      color: AppColors.primaryTextColor,
-                    ),
-                    hintText: "Email",
+                  decoration: const InputDecoration(
+                    hintText: 'Telefon, email ya da kullanıcı adı',
                     hintStyle: TextStyle(
                       color: AppColors.primaryTextColor,
                       fontFamily: 'Lexend',
                     ),
                     border: InputBorder.none,
-                    contentPadding: EdgeInsets.all(10.0),
+                    contentPadding:
+                        EdgeInsets.symmetric(horizontal: 16.0, vertical: 0),
                   ),
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: AppColors.primaryTextColor,
                     fontFamily: 'Lexend',
                   ),
                 ),
               ),
-              SizedBox(height: 20.0),
-
-              // Password Input Field
+              const SizedBox(height: 24.0),
+              // Password Input
               Container(
                 height: AppDimens.inputTextFieldHeight,
                 decoration: BoxDecoration(
                   color: AppColors.pageBackground,
-                  borderRadius: BorderRadius.circular(50.0),
+                  borderRadius: BorderRadius.circular(12.0),
                   border:
-                      Border.all(color: AppColors.primaryTextColor, width: 2),
+                      Border.all(color: AppColors.primaryTextColor, width: 1.2),
                 ),
                 child: TextField(
                   controller: _passwordController,
-                  obscureText:
-                      !_isPasswordVisible, // password visibility toggle
+                  obscureText: !_isPasswordVisible,
                   decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.lock_outline,
-                        color: AppColors.primaryTextColor),
+                    hintText: 'Şifre',
+                    hintStyle: const TextStyle(
+                      color: AppColors.primaryTextColor,
+                      fontFamily: 'Lexend',
+                    ),
+                    border: InputBorder.none,
+                    contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 16.0, vertical: 0),
                     suffixIcon: IconButton(
                       icon: Icon(
                         _isPasswordVisible
@@ -121,72 +138,87 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       onPressed: () {
                         setState(() {
-                          _isPasswordVisible =
-                              !_isPasswordVisible; // toggle visibility
+                          _isPasswordVisible = !_isPasswordVisible;
                         });
                       },
                     ),
-                    hintText: "Password",
-                    hintStyle: TextStyle(
-                      color: AppColors.primaryTextColor,
-                      fontFamily: 'Lexend',
-                    ),
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.all(10.0),
                   ),
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: AppColors.primaryTextColor,
                     fontFamily: 'Lexend',
                   ),
                 ),
               ),
-              SizedBox(height: 20.0),
-
-              // Sign In Button
-              Container(
-                width: double.infinity,
-                height: AppDimens.signInButtonHeight,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.blackButtonBackground,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50.0),
-                    ),
-                  ),
-                  onPressed: _signIn,
-                  child: Text(
-                    "Sign In",
-                    style: TextStyle(
-                      color: AppColors.blackButtonTextColor,
-                      fontFamily: 'Lexend',
-                      fontSize: 16.0,
-                    ),
-                  ),
-                ),
-              ),
-
-              SizedBox(height: 10.0),
-
+              const SizedBox(height: 18.0),
               // Forgot Password
-              TextButton(
-                onPressed: () {
-                  // şifremi unuttum actionu eklenecek
-                },
-                child: Text(
-                  "Forgot Password",
-                  style: TextStyle(
-                    color: AppColors.primaryTextColor,
-                    fontFamily: 'Lexend',
-                    fontWeight: FontWeight.w500,
-                    fontSize: 16.0,
+              Center(
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    'Şifremi unuttum',
+                    style: TextStyle(
+                      color: AppColors.thirdTextColor,
+                      fontFamily: 'Lexend',
+                      fontWeight: FontWeight.w400,
+                      fontSize: 15.0,
+                    ),
                   ),
                 ),
               ),
-
-              SizedBox(height: 90.0),
-
-              // Create an Account Button
-              Container(
+              const SizedBox(height: 32.0),
+              // Giriş Yap Button (Gradient)
+              GradientButton(
+                text: 'Giriş Yap',
+                onPressed: _signIn,
+                height: AppDimens.signInButtonHeight,
+                borderRadius: 50,
+                gradientColors: const [Color(0xFFFFC800), Color(0xFFFF9100)],
+                textStyle: const TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'Lexend',
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16.0,
+                ),
+              ),
+              const SizedBox(height: 32.0),
+              // Sign Up Prompt
+              Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Daha kayıt olmadın mı? ',
+                      style: TextStyle(
+                        color: AppColors.primaryTextColor,
+                        fontFamily: 'Lexend',
+                        fontWeight: FontWeight.w400,
+                        fontSize: 15.0,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RegisterPage()),
+                        );
+                      },
+                      child: const Text(
+                        'Hemen Kaydol',
+                        style: TextStyle(
+                          color: Color(0xFFFF9100),
+                          fontFamily: 'Lexend',
+                          fontWeight: FontWeight.w700,
+                          fontSize: 15.0,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 48.0),
+              // Social Sign In Buttons
+              SizedBox(
                 width: double.infinity,
                 height: AppDimens.signInButtonHeight,
                 child: OutlinedButton(
@@ -194,27 +226,101 @@ class _LoginPageState extends State<LoginPage> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50.0),
                     ),
-                    side:
-                        BorderSide(width: 2, color: AppColors.primaryTextColor),
+                    side: const BorderSide(
+                        width: 1.5, color: AppColors.primaryTextColor),
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => RegisterPage()),
-                    );
-                  },
-                  child: Text(
-                    "Create an account",
+                  onPressed: () {},
+                  child: const Text(
+                    'Sign in with Google',
                     style: TextStyle(
                       color: AppColors.primaryTextColor,
                       fontFamily: 'Lexend',
+                      fontWeight: FontWeight.w500,
                       fontSize: 16.0,
                     ),
                   ),
                 ),
               ),
+              const SizedBox(height: 24.0),
+              SizedBox(
+                width: double.infinity,
+                height: AppDimens.signInButtonHeight,
+                child: OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50.0),
+                    ),
+                    side: const BorderSide(
+                        width: 1.5, color: AppColors.primaryTextColor),
+                  ),
+                  onPressed: () {},
+                  child: const Text(
+                    'Sign in with Apple',
+                    style: TextStyle(
+                      color: AppColors.primaryTextColor,
+                      fontFamily: 'Lexend',
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16.0,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 60.0),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class GradientButton extends StatelessWidget {
+  final String text;
+  final VoidCallback onPressed;
+  final double height;
+  final double borderRadius;
+  final List<Color> gradientColors;
+  final TextStyle textStyle;
+
+  const GradientButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    this.height = 50,
+    this.borderRadius = 50,
+    this.gradientColors = const [Color(0xFFFFC800), Color(0xFFFF9100)],
+    this.textStyle = const TextStyle(
+      color: Colors.white,
+      fontFamily: 'Lexend',
+      fontWeight: FontWeight.w600,
+      fontSize: 16.0,
+    ),
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      height: height,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: gradientColors,
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+          ),
+          borderRadius: BorderRadius.circular(borderRadius),
+        ),
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.transparent,
+            shadowColor: Colors.transparent,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(borderRadius),
+            ),
+          ),
+          onPressed: onPressed,
+          child: Text(text, style: textStyle),
         ),
       ),
     );

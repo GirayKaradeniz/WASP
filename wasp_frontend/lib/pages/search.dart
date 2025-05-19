@@ -7,6 +7,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,12 +18,14 @@ class MyApp extends StatelessWidget {
 }
 
 class SearchPage extends StatelessWidget {
+  const SearchPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.pageBackground,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(110),
+        preferredSize: const Size.fromHeight(110),
         child: AppBar(
           backgroundColor: AppColors.pageBackground,
           flexibleSpace: Padding(
@@ -31,7 +35,7 @@ class SearchPage extends StatelessWidget {
                   MainAxisAlignment.end, // Elemanları alt hizaya çeker
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   'Search',
                   style: TextStyle(
                     fontFamily: 'Lexend',
@@ -40,7 +44,7 @@ class SearchPage extends StatelessWidget {
                     color: AppColors.primaryTextColor,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                     height: 6), // Başlık ile arama çubuğu arasındaki boşluk
                 Container(
                   height: AppDimens.inputTextFieldHeight,
@@ -50,7 +54,7 @@ class SearchPage extends StatelessWidget {
                     border:
                         Border.all(color: AppColors.primaryTextColor, width: 2),
                   ),
-                  child: TextField(
+                  child: const TextField(
                     decoration: InputDecoration(
                       prefixIcon: Icon(
                         Icons.search_outlined,

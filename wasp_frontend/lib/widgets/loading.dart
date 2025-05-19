@@ -3,6 +3,8 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:wasp_frontend/resources/app_resources.dart';
 
 class LoadingWidget extends StatefulWidget {
+  const LoadingWidget({super.key});
+
   @override
   _LoadingWidgetState createState() => _LoadingWidgetState();
 }
@@ -20,14 +22,14 @@ class _LoadingWidgetState extends State<LoadingWidget> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 4), _updateMessage);
+    Future.delayed(const Duration(seconds: 4), _updateMessage);
   }
 
   void _updateMessage() {
     setState(() {
       currentMessageIndex = (currentMessageIndex + 1) % messages.length;
     });
-    Future.delayed(Duration(seconds: 22), _updateMessage);
+    Future.delayed(const Duration(seconds: 22), _updateMessage);
   }
 
   @override
@@ -49,10 +51,10 @@ class _LoadingWidgetState extends State<LoadingWidget> {
                 color: AppColors.primary,
                 size: 50,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 messages[currentMessageIndex],
-                style: TextStyle(
+                style: const TextStyle(
                   fontFamily: 'Lexend',
                   color: AppColors.primaryTextColor,
                   fontSize: 14,

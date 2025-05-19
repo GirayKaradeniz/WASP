@@ -3,6 +3,8 @@ import 'package:wasp_frontend/resources/app_resources.dart';
 import 'package:wasp_frontend/widgets/loading.dart';
 
 class CreateVideo extends StatefulWidget {
+  const CreateVideo({super.key});
+
   @override
   _CreateVideoState createState() => _CreateVideoState();
 }
@@ -18,9 +20,9 @@ class _CreateVideoState extends State<CreateVideo> {
       ),
     );
 
-    overlay?.insert(_overlayEntry!);
+    overlay.insert(_overlayEntry!);
 
-    Future.delayed(Duration(seconds: 20), () {
+    Future.delayed(const Duration(seconds: 20), () {
       _overlayEntry?.remove();
     });
   }
@@ -33,12 +35,12 @@ class _CreateVideoState extends State<CreateVideo> {
         backgroundColor: AppColors.pageBackground,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: AppColors.primaryTextColor),
+          icon: const Icon(Icons.arrow_back, color: AppColors.primaryTextColor),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        title: Text(
+        title: const Text(
           'Create Video',
           style: TextStyle(
             fontFamily: 'Lexend',
@@ -54,7 +56,7 @@ class _CreateVideoState extends State<CreateVideo> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'My Prompt:',
               style: TextStyle(
                 fontFamily: 'Lexend',
@@ -63,14 +65,14 @@ class _CreateVideoState extends State<CreateVideo> {
                 color: AppColors.primaryTextColor,
               ),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Container(
-              padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
+              padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black, width: 2),
                 borderRadius: BorderRadius.circular(16),
               ),
-              child: TextField(
+              child: const TextField(
                 maxLength: 200,
                 maxLines: 6,
                 style: TextStyle(
@@ -87,7 +89,7 @@ class _CreateVideoState extends State<CreateVideo> {
                 ),
               ),
             ),
-            Align(
+            const Align(
               alignment: Alignment.centerRight,
               child: Text(
                 '(max. 200 character)',
@@ -97,8 +99,8 @@ class _CreateVideoState extends State<CreateVideo> {
                 ),
               ),
             ),
-            SizedBox(height: 15.0),
-            Container(
+            const SizedBox(height: 15.0),
+            SizedBox(
               width: double.infinity,
               height: AppDimens.signInButtonHeight,
               child: ElevatedButton(
@@ -111,7 +113,7 @@ class _CreateVideoState extends State<CreateVideo> {
                 onPressed: () {
                   _showLoading();
                 },
-                child: Text(
+                child: const Text(
                   'Create Video',
                   style: TextStyle(
                     fontFamily: 'Lexend',

@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 
 class AppAssets {
   static const waspLogoIconYellow = 'assets/icons/waspyellow.svg';

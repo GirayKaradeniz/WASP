@@ -3,6 +3,8 @@ import 'package:intl/intl.dart';
 import 'package:wasp_frontend/resources/app_resources.dart';
 
 class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
+
   @override
   _RegisterPageState createState() => _RegisterPageState();
 }
@@ -34,7 +36,7 @@ class _RegisterPageState extends State<RegisterPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'Sign Up',
                 style: TextStyle(
                     fontSize: 30,
@@ -42,28 +44,28 @@ class _RegisterPageState extends State<RegisterPage> {
                     fontWeight: FontWeight.w700,
                     color: AppColors.primaryTextColor),
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
 
               // Name Input Field
               _buildInputField(
                 icon: Icons.person_outline,
                 hintText: "Name",
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
 
               // Surname Input Field
               _buildInputField(
                 icon: Icons.person_outline,
                 hintText: "Surname",
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
 
               // Email Input Field
               _buildInputField(
                 icon: Icons.email_outlined,
                 hintText: "Email",
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
 
               // Date of Birth Input Field (Date Picker)
               _buildDatePickerField(
@@ -75,7 +77,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   });
                 },
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
 
               // occupation Input Field (Dropdown)
               _buildDropdownField(
@@ -88,7 +90,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   });
                 },
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
 
               // Password Input Field
               _buildPasswordInputField(
@@ -100,7 +102,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   });
                 },
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
 
               // Password Confirm Input Field
               _buildPasswordInputField(
@@ -112,7 +114,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   });
                 },
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
 
               // Terms and Conditions
               Row(
@@ -120,9 +122,9 @@ class _RegisterPageState extends State<RegisterPage> {
                   Checkbox(
                     activeColor: AppColors.primary,
                     checkColor: AppColors.blackButtonBackground,
-                    side: BorderSide(
+                    side: const BorderSide(
                         width: 2, color: AppColors.secondaryTextColor),
-                    shape: CircleBorder(),
+                    shape: const CircleBorder(),
                     value: _agreeToTerms,
                     onChanged: (value) {
                       setState(() {
@@ -130,7 +132,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       });
                     },
                   ),
-                  Expanded(
+                  const Expanded(
                     child: Text(
                       "I have read and agree to WASPs Terms of Service and Privacy Policy.",
                       style: TextStyle(
@@ -142,15 +144,15 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ],
               ),
-              SizedBox(height: 10.0),
+              const SizedBox(height: 10.0),
               Row(
                 children: [
                   Checkbox(
                     activeColor: AppColors.primary,
                     checkColor: AppColors.blackButtonBackground,
-                    side: BorderSide(
+                    side: const BorderSide(
                         width: 2, color: AppColors.secondaryTextColor),
-                    shape: CircleBorder(),
+                    shape: const CircleBorder(),
                     value: _receiveOffers,
                     onChanged: (value) {
                       setState(() {
@@ -158,7 +160,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       });
                     },
                   ),
-                  Expanded(
+                  const Expanded(
                     child: Text(
                       "Yes, I would like to receive commercial electronic information and offers from WASP (including emails and push notifications, which may be subject to fees charged by my wireless carrier), including on my wireless device. You may later unsubscribe. Your consent is sought by WASP Software Technologies, Inc.",
                       style: TextStyle(
@@ -170,10 +172,10 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ],
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
 
               // Register Button
-              Container(
+              SizedBox(
                 width: double.infinity,
                 height: AppDimens.signInButtonHeight,
                 child: ElevatedButton(
@@ -186,7 +188,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   onPressed: () {
                     // register butonu eklenecek
                   },
-                  child: Text(
+                  child: const Text(
                     "Register",
                     style: TextStyle(
                       color: AppColors.blackButtonTextColor,
@@ -197,8 +199,8 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
 
-              SizedBox(height: 20.0),
-              Center(
+              const SizedBox(height: 20.0),
+              const Center(
                 child: Text(
                   'I already have an account',
                   style: TextStyle(
@@ -230,14 +232,14 @@ class _RegisterPageState extends State<RegisterPage> {
             color: AppColors.primaryTextColor,
           ),
           hintText: hintText,
-          hintStyle: TextStyle(
+          hintStyle: const TextStyle(
             color: AppColors.primaryTextColor,
             fontFamily: 'Lexend',
           ),
           border: InputBorder.none,
-          contentPadding: EdgeInsets.all(10.0),
+          contentPadding: const EdgeInsets.all(10.0),
         ),
-        style: TextStyle(
+        style: const TextStyle(
           color: AppColors.primaryTextColor,
           fontFamily: 'Lexend',
         ),
@@ -261,7 +263,7 @@ class _RegisterPageState extends State<RegisterPage> {
         obscureText: !isPasswordVisible,
         decoration: InputDecoration(
           prefixIcon:
-              Icon(Icons.lock_outline, color: AppColors.primaryTextColor),
+              const Icon(Icons.lock_outline, color: AppColors.primaryTextColor),
           suffixIcon: IconButton(
             icon: Icon(
               isPasswordVisible
@@ -272,14 +274,14 @@ class _RegisterPageState extends State<RegisterPage> {
             onPressed: toggleVisibility,
           ),
           hintText: hintText,
-          hintStyle: TextStyle(
+          hintStyle: const TextStyle(
             color: AppColors.primaryTextColor,
             fontFamily: 'Lexend',
           ),
           border: InputBorder.none,
-          contentPadding: EdgeInsets.all(10.0),
+          contentPadding: const EdgeInsets.all(10.0),
         ),
-        style: TextStyle(
+        style: const TextStyle(
           color: AppColors.primaryTextColor,
           fontFamily: 'Lexend',
         ),
@@ -303,8 +305,8 @@ class _RegisterPageState extends State<RegisterPage> {
       ),
       child: Row(
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
             child: Icon(
               Icons.work_outline,
               color: AppColors.primaryTextColor,
@@ -318,12 +320,12 @@ class _RegisterPageState extends State<RegisterPage> {
                 value: selectedValue,
                 hint: Text(
                   hintText,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: AppColors.primaryTextColor,
                     fontFamily: 'Lexend',
                   ),
                 ),
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_drop_down,
                   color: AppColors.primaryTextColor,
                 ),
@@ -333,7 +335,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     value: option,
                     child: Text(
                       option,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: AppColors.primaryTextColor,
                         fontFamily: 'Lexend',
                       ),
@@ -374,16 +376,16 @@ class _RegisterPageState extends State<RegisterPage> {
           padding: const EdgeInsets.all(10.0),
           child: Row(
             children: [
-              Icon(
+              const Icon(
                 Icons.calendar_today,
                 color: AppColors.primaryTextColor,
               ),
-              SizedBox(width: 10.0),
+              const SizedBox(width: 10.0),
               Text(
                 selectedDate == null
                     ? hintText
                     : DateFormat('dd/MM/yyyy').format(selectedDate),
-                style: TextStyle(
+                style: const TextStyle(
                   color: AppColors.primaryTextColor,
                   fontFamily: 'Lexend',
                   fontWeight: FontWeight.w500,

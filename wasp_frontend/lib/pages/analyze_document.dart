@@ -4,6 +4,8 @@ import 'package:wasp_frontend/widgets/loading.dart';
 import 'package:mobkit_dashed_border/mobkit_dashed_border.dart';
 
 class AnalyzeDocument extends StatefulWidget {
+  const AnalyzeDocument({super.key});
+
   @override
   _AnalyzeDocumentState createState() => _AnalyzeDocumentState();
 }
@@ -19,9 +21,9 @@ class _AnalyzeDocumentState extends State<AnalyzeDocument> {
       ),
     );
 
-    overlay?.insert(_overlayEntry!);
+    overlay.insert(_overlayEntry!);
 
-    Future.delayed(Duration(seconds: 20), () {
+    Future.delayed(const Duration(seconds: 20), () {
       _overlayEntry?.remove();
     });
   }
@@ -34,12 +36,12 @@ class _AnalyzeDocumentState extends State<AnalyzeDocument> {
         backgroundColor: AppColors.pageBackground,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: AppColors.primaryTextColor),
+          icon: const Icon(Icons.arrow_back, color: AppColors.primaryTextColor),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        title: Text(
+        title: const Text(
           'Analyze Document',
           style: TextStyle(
             fontFamily: 'Lexend',
@@ -54,12 +56,12 @@ class _AnalyzeDocumentState extends State<AnalyzeDocument> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            SizedBox(height: 15.0),
+            const SizedBox(height: 15.0),
             Container(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               width: double.infinity,
               height: 180,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 border: DashedBorder.fromBorderSide(
                   dashLength: 15,
                   side:
@@ -74,11 +76,11 @@ class _AnalyzeDocumentState extends State<AnalyzeDocument> {
                   Container(
                     width: 70.0, // Dairenin genişliği
                     height: 70.0, // Dairenin yüksekliği
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: AppColors.primary, // Dairenin rengi
                       shape: BoxShape.circle, // Şekil daire
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Icon(
                         Icons.add, // İkon
                         size: 40.0, // İkonun boyutu
@@ -86,8 +88,8 @@ class _AnalyzeDocumentState extends State<AnalyzeDocument> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 8.0), // Daire ve metin arasında boşluk
-                  Text(
+                  const SizedBox(height: 8.0), // Daire ve metin arasında boşluk
+                  const Text(
                     'Add File',
                     style: TextStyle(
                       fontFamily: 'Lexend',
@@ -98,7 +100,7 @@ class _AnalyzeDocumentState extends State<AnalyzeDocument> {
                 ],
               ),
             ),
-            Align(
+            const Align(
               alignment: Alignment.centerRight,
               child: Text(
                 '(max. 200 MB)',
@@ -108,8 +110,8 @@ class _AnalyzeDocumentState extends State<AnalyzeDocument> {
                 ),
               ),
             ),
-            SizedBox(height: 15.0),
-            Container(
+            const SizedBox(height: 15.0),
+            SizedBox(
               width: double.infinity,
               height: AppDimens.signInButtonHeight,
               child: ElevatedButton(
@@ -122,7 +124,7 @@ class _AnalyzeDocumentState extends State<AnalyzeDocument> {
                 onPressed: () {
                   _showLoading();
                 },
-                child: Text(
+                child: const Text(
                   'Analyze Document',
                   style: TextStyle(
                     fontFamily: 'Lexend',
